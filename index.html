@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071329">
+<title>CLADDA | A Journey Through Media and Information</title>
+<style>
+:root{--navy:#071329;--navy2:#0d1d3a;--panel:rgba(18,38,70,.76);--cyan:#48d9f5;--pink:#ff6ec7;--purple:#9c83ff;--lime:#c5f36b;--gold:#ffd166;--white:#f3f7ff;--muted:#b7c4d9;--line:rgba(155,190,235,.18);--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(circle at 12% 8%,#172c55 0,transparent 32%),radial-gradient(circle at 90% 30%,#271b52 0,transparent 30%),var(--navy);color:var(--white);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.65}
+a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
+nav{position:sticky;top:0;z-index:20;background:rgba(5,15,33,.86);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1180px;margin:auto;padding:13px 22px;display:flex;align-items:center;gap:20px;justify-content:space-between}
+.brand{font-weight:900;letter-spacing:.14em;font-size:1.25rem;color:var(--cyan)}
+.nav-links{display:flex;gap:16px;align-items:center;overflow-x:auto;white-space:nowrap;font-size:.83rem;color:var(--muted)}
+.nav-links a:hover{color:var(--cyan)}
+.menu-btn{display:none;background:none;color:white;border:1px solid var(--line);border-radius:10px;padding:7px 11px}
+.wrap{max-width:1120px;margin:auto;padding:0 22px}
+.hero{min-height:88vh;display:grid;align-items:center;position:relative;overflow:hidden;padding:80px 0}
+.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;filter:blur(2px);pointer-events:none}
+.hero:before{width:360px;height:360px;border:1px solid rgba(72,217,245,.25);right:6%;top:15%;box-shadow:0 0 70px rgba(72,217,245,.12),inset 0 0 70px rgba(72,217,245,.08)}
+.hero:after{width:220px;height:220px;border:1px solid rgba(255,110,199,.25);right:12%;top:25%;box-shadow:0 0 65px rgba(255,110,199,.1)}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center;position:relative;z-index:1}
+.eyebrow{color:var(--lime);text-transform:uppercase;letter-spacing:.2em;font-size:.75rem;font-weight:800}
+h1{font-size:clamp(3.7rem,10vw,7.8rem);line-height:.92;letter-spacing:-.07em;margin:18px 0;color:white;text-shadow:0 0 35px rgba(72,217,245,.15)}
+h1 span{color:var(--cyan)}
+.hero h2{font-size:clamp(1.25rem,3vw,2rem);font-weight:500;color:#dbe7ff;margin:20px 0}
+.lead{max-width:650px;color:var(--muted);font-size:1.04rem}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{border:0;border-radius:999px;padding:13px 21px;font-weight:800;transition:.2s;display:inline-flex;align-items:center;gap:8px}
+.btn:hover{transform:translateY(-3px)}
+.primary{background:linear-gradient(100deg,var(--cyan),#83f0dc);color:#071329;box-shadow:0 8px 30px rgba(72,217,245,.2)}
+.secondary{background:rgba(255,255,255,.06);border:1px solid var(--line);color:var(--white)}
+.museum-art{min-height:390px;position:relative;display:grid;place-items:center}
+.orbit{width:min(360px,80vw);aspect-ratio:1;border:1px solid rgba(72,217,245,.3);border-radius:50%;display:grid;place-items:center;box-shadow:0 0 80px rgba(72,217,245,.1),inset 0 0 60px rgba(156,131,255,.1);position:relative}
+.orbit:before,.orbit:after{content:"";position:absolute;border:1px dashed rgba(255,110,199,.4);border-radius:50%;inset:12%;transform:rotate(35deg)}
+.orbit:after{inset:25%;border-color:rgba(197,243,107,.4);transform:rotate(-35deg)}
+.core{width:42%;aspect-ratio:1;border-radius:30%;display:grid;place-items:center;background:linear-gradient(135deg,#193c67,#37235d);border:1px solid rgba(255,255,255,.2);box-shadow:0 0 55px rgba(72,217,245,.2);font-size:3.7rem;z-index:1}
+.float{position:absolute;padding:12px 15px;border:1px solid var(--line);border-radius:16px;background:rgba(12,29,56,.88);backdrop-filter:blur(10px);box-shadow:var(--shadow);font-size:1.5rem}
+.f1{top:12%;left:3%}.f2{top:18%;right:1%}.f3{bottom:12%;left:5%}.f4{bottom:10%;right:5%}
+section{padding:86px 0;scroll-margin-top:72px}
+.section-head{margin-bottom:30px;max-width:760px}
+.kicker{font-size:.72rem;text-transform:uppercase;letter-spacing:.2em;color:var(--pink);font-weight:900}
+h2.section-title{font-size:clamp(2rem,5vw,3.3rem);line-height:1.08;margin:9px 0 14px;letter-spacing:-.04em}
+.section-head p{color:var(--muted);margin:0}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.grid.two{grid-template-columns:repeat(2,1fr)}
+.grid.four{grid-template-columns:repeat(4,1fr)}
+.card{background:linear-gradient(145deg,rgba(22,45,81,.88),rgba(12,27,53,.8));border:1px solid var(--line);border-radius:22px;padding:23px;box-shadow:var(--shadow);transition:.25s}
+.card:hover{transform:translateY(-5px);border-color:rgba(72,217,245,.45)}
+.card .icon{font-size:2rem;margin-bottom:10px;display:block}
+.card h3{margin:4px 0 9px;font-size:1.16rem}
+.card p,.card li{color:var(--muted);font-size:.94rem}
+.card ul{padding-left:19px;margin:8px 0}
+.question{margin-top:30px;padding:28px;border-radius:22px;border:1px solid rgba(255,110,199,.35);background:linear-gradient(110deg,rgba(255,110,199,.1),rgba(72,217,245,.08));font-size:clamp(1.3rem,3vw,2rem);font-weight:800;text-align:center}
+.gallery-card{overflow:hidden;padding:0}
+.gallery-visual{height:145px;display:grid;place-items:center;font-size:3.5rem;background:radial-gradient(circle at 50% 40%,rgba(72,217,245,.25),transparent 55%),linear-gradient(135deg,#142c50,#251c4b)}
+.gallery-body{padding:21px}
+.tag{display:inline-block;font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:var(--lime);font-weight:800}
+.timeline{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:30px}
+.timeline:before{content:"";position:absolute;left:7%;right:7%;top:25px;height:2px;background:linear-gradient(90deg,var(--gold),var(--pink),var(--cyan),var(--lime));opacity:.7}
+.time-card{position:relative;padding-top:56px}
+.dot{position:absolute;top:15px;left:20px;width:21px;height:21px;border-radius:50%;background:var(--cyan);border:5px solid #173354;box-shadow:0 0 0 2px var(--cyan)}
+.time-card:nth-child(2) .dot{background:var(--pink);box-shadow:0 0 0 2px var(--pink)}
+.time-card:nth-child(3) .dot{background:var(--purple);box-shadow:0 0 0 2px var(--purple)}
+.time-card:nth-child(4) .dot{background:var(--lime);box-shadow:0 0 0 2px var(--lime)}
+.time-card:nth-child(5) .dot{background:var(--gold);box-shadow:0 0 0 2px var(--gold)}
+.time-card .card{height:100%;padding:18px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.positive{border-color:rgba(197,243,107,.32)}.negative{border-color:rgba(255,110,199,.32)}
+.positive h3{color:var(--lime)}.negative h3{color:var(--pink)}
+.warning{border:1px solid rgba(255,209,102,.4);background:linear-gradient(120deg,rgba(255,209,102,.1),rgba(255,110,199,.07));border-radius:24px;padding:28px}
+.warning h3{color:var(--gold);font-size:1.35rem;margin-top:0}
+.steps{counter-reset:step;display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:20px}
+.step{background:rgba(255,255,255,.045);border:1px solid var(--line);border-radius:16px;padding:16px}
+.step:before{counter-increment:step;content:counter(step,decimal-leading-zero);display:block;color:var(--gold);font-weight:900;font-size:1.2rem;margin-bottom:8px}
+.quote{font-size:1.35rem;font-weight:800;text-align:center;color:#fff;margin:24px auto 0;max-width:850px}
+.quiz{max-width:850px}
+.q{padding:22px;border-bottom:1px solid var(--line)}
+.q h3{margin:0 0 14px}
+.option{display:flex;gap:10px;align-items:flex-start;padding:11px 13px;border:1px solid var(--line);border-radius:12px;margin:8px 0;color:var(--muted);cursor:pointer}
+.option:hover{border-color:var(--cyan);color:white}
+.option input{accent-color:var(--cyan);margin-top:5px}
+#quiz-result{display:none;margin-top:18px;padding:22px;border-radius:18px;background:rgba(72,217,245,.1);border:1px solid rgba(72,217,245,.35)}
+.feedback{font-size:.9rem;color:var(--muted);margin:7px 0}
+.ref-list{padding-left:22px;color:var(--muted)}
+.ref-list li{padding:7px 0}
+.reflection{font-size:1.06rem;line-height:1.9;color:#dce7f8}
+.reflection-mark{font-size:3rem;color:var(--pink);line-height:1}
+footer{border-top:1px solid var(--line);padding:42px 0 28px;background:rgba(3,11,25,.55)}
+.footer-inner{display:flex;justify-content:space-between;gap:24px;align-items:end;flex-wrap:wrap}
+.footer-brand{font-size:2rem;font-weight:950;letter-spacing:.12em;color:var(--cyan)}
+.small{font-size:.82rem;color:var(--muted)}
+.backtop{position:fixed;bottom:20px;right:20px;z-index:15;border:1px solid var(--line);background:#122c4b;color:white;border-radius:50%;width:48px;height:48px;font-size:1.2rem;box-shadow:var(--shadow)}
+.reveal{opacity:0;transform:translateY(18px);transition:.65s ease}
+.reveal.visible{opacity:1;transform:none}
+@media(max-width:850px){.hero-grid{grid-template-columns:1fr}.museum-art{min-height:320px}.grid.four{grid-template-columns:repeat(2,1fr)}.timeline{grid-template-columns:1fr 1fr}.timeline:before{display:none}.time-card{padding-top:0}.dot{display:none}.steps{grid-template-columns:repeat(2,1fr)}.nav-links{display:none;position:absolute;top:60px;left:0;right:0;padding:18px 22px;background:#08162d;flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--line)}.nav-links.open{display:flex}.menu-btn{display:block}}
+@media(max-width:600px){section{padding:65px 0}.grid,.grid.two,.grid.four,.split{grid-template-columns:1fr}.timeline,.steps{grid-template-columns:1fr}.hero{min-height:auto;padding:65px 0}.museum-art{min-height:280px}.orbit{width:250px}.float{font-size:1.2rem;padding:8px 11px}.footer-inner{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner"><a class="brand" href="#top">CLADDA<span style="color:#fff">.</span></a><button class="menu-btn" id="menuBtn" aria-label="Open navigation">☰</button><div class="nav-links" id="navLinks">
+<a href="#welcome">Museum</a><a href="#basics">Media & Info</a><a href="#forms">Media Forms</a><a href="#timeline">Evolution</a><a href="#influence">Influence</a><a href="#misinfo">Misinformation</a><a href="#citizenship">Citizenship</a><a href="#quiz">Quiz</a><a href="#reflection">Reflection</a><a href="#references">References</a>
+</div></div></nav>
+<header class="hero" id="top"><div class="wrap hero-grid"><div><div class="eyebrow">An interactive digital museum</div><h1><span>CL</span>ADDA</h1><h2>A Journey Through Media and Information</h2><p class="lead">Welcome to CLADDA! In today's rapidly evolving world, media and information have become essential parts of our everyday lives. From traditional newspapers and radio broadcasts to social media platforms and artificial intelligence, the way we access, create, and share information continues to change.</p><p class="lead">This digital museum explores the evolution of media, its influence on society, and the importance of becoming responsible and informed media users.</p><div class="actions"><a class="btn primary" href="#welcome">ENTER THE MUSEUM&nbsp; →</a><a class="btn secondary" href="#quiz">Try the visitor challenge</a></div></div><div class="museum-art" aria-label="Digital museum illustration"><div class="orbit"><div class="core">✦</div></div><div class="float f1">📰</div><div class="float f2">📡</div><div class="float f3">🌐</div><div class="float f4">🤖</div></div></div></header>
+<main>
+<section id="welcome"><div class="wrap reveal"><div class="section-head"><div class="kicker">Gallery 01 · Orientation</div><h2 class="section-title">Welcome to the Digital Museum</h2><p>Welcome to a learning experience where information meets technology! This digital museum is divided into different galleries that introduce visitors to the world of media and information.</p></div><div class="grid"><article class="card"><span class="icon">🗂️</span><h3>Explore Media</h3><p>Discover the different forms of media and their characteristics.</p></article><article class="card"><span class="icon">🌍</span><h3>Examine Influence</h3><p>Understand how media affects individuals and society.</p></article><article class="card"><span class="icon">🔎</span><h3>Think Critically</h3><p>Learn how to evaluate information and recognize misinformation.</p></article></div><div class="question">“How can we use media without letting media think for us?”</div></div></section>
+<section id="basics"><div class="wrap reveal"><div class="section-head"><div class="kicker">Gallery 02 · Foundations</div><h2 class="section-title">Understanding Media and Information</h2><p>Three connected ideas help us understand how messages are created, shared, and evaluated.</p></div><div class="grid"><article class="card"><span class="icon">📺</span><h3>What is Media?</h3><p>Media refers to the different channels, platforms, and tools used to create, communicate, and distribute messages to an audience. Examples include newspapers, television, radio, websites, and social media.</p></article><article class="card"><span class="icon">💡</span><h3>What is Information?</h3><p>Information refers to facts, ideas, data, and knowledge that help people understand situations, make decisions, and develop awareness about the world.</p></article><article class="card"><span class="icon">🧠</span><h3>What is Media Literacy?</h3><p>Media literacy is the ability to access, analyze, evaluate, create, and communicate information through different forms of media. It allows individuals to become critical thinkers who can distinguish reliable information from misleading content.</p></article></div></div></section>
+<section id="forms"><div class="wrap reveal"><div class="section-head"><div class="kicker">Gallery 03 · The media collection</div><h2 class="section-title">The Different Forms of Media</h2><p>Explore four major categories, their examples, advantages, and limitations.</p></div><div class="grid two">
+<article class="card gallery-card"><div class="gallery-visual">📰📚</div><div class="gallery-body"><span class="tag">A · Print media</span><h3>Printed materials</h3><p>Print media refers to information distributed through printed materials.</p><p><b>Examples</b></p><ul><li>Newspapers</li><li>Books</li><li>Magazines</li><li>Brochures</li><li>Flyers</li></ul><p><b>Advantages</b></p><ul><li>Provides detailed information.</li><li>Can be kept and read repeatedly.</li><li>Does not require an internet connection.</li></ul><p><b>Disadvantages</b></p><ul><li>Requires printing materials and resources.</li><li>Distribution may take time.</li><li>Information may not be updated immediately.</li></ul></div></article>
+<article class="card gallery-card"><div class="gallery-visual">📻📺</div><div class="gallery-body"><span class="tag">B · Broadcast media</span><h3>Audio and audiovisual channels</h3><p>Broadcast media delivers information through audio and audiovisual channels.</p><p><b>Examples</b></p><ul><li>Radio</li><li>Television</li></ul><p><b>Advantages</b></p><ul><li>Reaches a wide audience.</li><li>Provides timely news and announcements.</li><li>Combines sound and visuals to communicate information.</li></ul><p><b>Disadvantages</b></p><ul><li>Usually follows scheduled programming.</li><li>Audiences may have limited control over content.</li><li>Production and broadcasting can be expensive.</li></ul></div></article>
+<article class="card gallery-card"><div class="gallery-visual">💻🌐</div><div class="gallery-body"><span class="tag">C · Digital media</span><h3>Electronic content</h3><p>Digital media refers to content created, stored, and distributed electronically.</p><p><b>Examples</b></p><ul><li>Websites</li><li>Online newspapers</li><li>Social media</li><li>Podcasts</li><li>Streaming platforms</li></ul><p><b>Advantages</b></p><ul><li>Allows fast communication.</li><li>Provides easy access to information.</li><li>Encourages interaction and participation.</li><li>Makes sharing content convenient.</li></ul><p><b>Disadvantages</b></p><ul><li>Can spread misinformation quickly.</li><li>May expose users to privacy risks.</li><li>Can cause excessive screen time and distraction.</li></ul></div></article>
+<article class="card gallery-card"><div class="gallery-visual">🤖✨</div><div class="gallery-body"><span class="tag">D · Emerging media</span><h3>Artificial intelligence</h3><p>Artificial intelligence, or AI, refers to technology that can perform tasks commonly associated with human intelligence, such as generating content, recognizing patterns, and processing language.</p><p><b>Examples</b></p><ul><li>AI chatbots</li><li>AI image generators</li><li>Automated recommendations</li><li>Virtual assistants</li></ul><p>AI can support education, research, and creativity. However, users must verify its outputs because AI-generated information can contain errors, bias, or misleading details.</p></div></article>
+</div></div></section>
+<section id="timeline"><div class="wrap reveal"><div class="section-head"><div class="kicker">Gallery 04 · A journey through time</div><h2 class="section-title">The Evolution of Communication</h2><p>Communication has developed significantly throughout history. These developments have made communication faster, more accessible, and more interactive. However, regardless of the technology used, accurate and meaningful information remains important.</p></div><div class="timeline">
+<div class="time-card"><span class="dot"></span><div class="card"><span class="icon">✉️</span><h3>Earlier Times</h3><p>Letters, books, and newspapers.</p></div></div>
+<div class="time-card"><span class="dot"></span><div class="card"><span class="icon">📻</span><h3>Broadcast Era</h3><p>Radio and television.</p></div></div>
+<div class="time-card"><span class="dot"></span><div class="card"><span class="icon">🌐</span><h3>Internet Era</h3><p>Websites and email.</p></div></div>
+<div class="time-card"><span class="dot"></span><div class="card"><span class="icon">💬</span><h3>Social Media Era</h3><p>Social networking platforms.</p></div></div>
+<div class="time-card"><span class="dot"></span><div class="card"><span class="icon">🤖</span><h3>Modern Era</h3><p>Artificial intelligence and interactive technologies.</p></div></div>
+</div></div></section>
+<section id="influence"><div class="wrap reveal"><div class="section-head"><div class="kicker">Gallery 05 · Society and media</div><h2 class="section-title">The Influence of Media on Society</h2><p>Media affects people's thoughts, behaviors, and decisions. Its impact can be helpful or harmful.</p></div><div class="split"><article class="card positive"><span class="icon">🌱</span><h3>Positive Influences</h3><ol><li><b>Education</b> – Provides learning resources and educational opportunities.</li><li><b>Communication</b> – Connects people regardless of distance.</li><li><b>Awareness</b> – Spreads information about social issues and current events.</li><li><b>Entertainment</b> – Offers various forms of recreation and creative expression.</li><li><b>Cultural Preservation</b> – Helps promote traditions, languages, and cultural practices.</li></ol></article><article class="card negative"><span class="icon">⚠️</span><h3>Negative Influences</h3><ol><li><b>Misinformation</b> – Spreads false or inaccurate information.</li><li><b>Cyberbullying</b> – Can be used to harass or harm others online.</li><li><b>Addiction and Distraction</b> – Excessive media consumption may affect productivity.</li><li><b>Privacy Risks</b> – Personal information may be exposed or misused.</li><li><b>Unrealistic Expectations</b> – Some online content promotes unhealthy comparisons.</li></ol></article></div><div class="question">Key takeaway: Media can create positive changes, but its effects depend on how people create, share, and consume information.</div></div></section>
+<section id="misinfo"><div class="wrap reveal"><div class="section-head"><div class="kicker">Gallery 06 · Verification lab</div><h2 class="section-title">Misinformation – Pause Before You Share</h2><p>Not every post or headline online is accurate. Learn the difference and practice checking before sharing.</p></div><div class="grid two"><article class="card"><span class="icon">❔</span><h3>Misinformation</h3><p>False or inaccurate information shared regardless of whether the person sharing it intends to deceive.</p></article><article class="card"><span class="icon">🎭</span><h3>Disinformation</h3><p>False information deliberately created or shared to mislead others.</p></article></div><div class="warning" style="margin-top:20px"><h3>🔍 How to Identify Misleading Information</h3><div class="steps"><div class="step"><b>Check the Source</b><p>Determine who published the information and whether the source is trustworthy.</p></div><div class="step"><b>Verify the Evidence</b><p>Look for facts, supporting documents, and credible references.</p></div><div class="step"><b>Examine the Date</b><p>Make sure the information is current and relevant.</p></div><div class="step"><b>Compare Other Sources</b><p>Check whether other reliable organizations report the same information.</p></div><div class="step"><b>Investigate Images</b><p>Determine whether photographs or videos have been edited or taken out of context.</p></div></div></div><p class="quote">“Do not believe everything you see online. Always verify information before accepting or sharing it.”</p></div></section>
+<section id="citizenship"><div class="wrap reveal"><div class="section-head"><div class="kicker">Gallery 07 · Digital responsibility</div><h2 class="section-title">Responsible Digital Citizenship</h2><p>Being a responsible digital citizen means using technology and online platforms safely, ethically, and respectfully.</p></div><div class="grid four">
+<div class="card"><span class="icon">🔐</span><h3>Protect privacy</h3><p>Protect personal information and privacy. Use strong passwords.</p></div>
+<div class="card"><span class="icon">🤝</span><h3>Show respect</h3><p>Respect other people's opinions. Avoid cyberbullying and harmful online behavior.</p></div>
+<div class="card"><span class="icon">©️</span><h3>Give credit</h3><p>Give proper credit to original creators.</p></div>
+<div class="card"><span class="icon">🧭</span><h3>Think first</h3><p>Verify information before sharing. Think carefully before posting online.</p></div>
+</div><div class="question">“Our actions online reflect our responsibilities as members of the digital community.”</div><p class="lead" style="margin:22px auto 0;text-align:center">Use technology for learning and positive communication.</p></div></section>
+<section id="quiz"><div class="wrap reveal"><div class="section-head"><div class="kicker">Gallery 08 · Visitor challenge</div><h2 class="section-title">Test Your Media Literacy!</h2><p>Choose the best answer for each situation, then submit your answers to see your score and explanations.</p></div><form class="card quiz" id="quizForm">
+<div class="q"><h3>Question 1: You encounter a shocking headline on social media. What should you do first?</h3><label class="option"><input type="radio" name="q1" value="A"> A. Share it immediately.</label><label class="option"><input type="radio" name="q1" value="B"> B. Check the source and verify the information.</label><label class="option"><input type="radio" name="q1" value="C"> C. Believe it because many people liked it.</label></div>
+<div class="q"><h3>Question 2: Someone shares a photograph without explaining its original context. What should you do?</h3><label class="option"><input type="radio" name="q2" value="A"> A. Find the original image and verify its context.</label><label class="option"><input type="radio" name="q2" value="B"> B. Immediately believe the caption.</label><label class="option"><input type="radio" name="q2" value="C"> C. Edit and repost the photograph.</label></div>
+<div class="q"><h3>Question 3: You use an online photograph for a school project. What should you do?</h3><label class="option"><input type="radio" name="q3" value="A"> A. Claim it as your own.</label><label class="option"><input type="radio" name="q3" value="B"> B. Remove the creator's name.</label><label class="option"><input type="radio" name="q3" value="C"> C. Check usage permissions and acknowledge the creator.</label></div>
+<div style="padding:22px"><button type="submit" class="btn primary">SUBMIT ANSWERS →</button> <button type="button" class="btn secondary" id="retake" style="display:none">RETAKE QUIZ ↻</button><div id="quiz-result" aria-live="polite"></div></div>
+</form></div></section>
+<section id="reflection"><div class="wrap reveal"><div class="section-head"><div class="kicker">Gallery 09 · Personal reflection</div><h2 class="section-title">What We Learned Beyond the Screen</h2></div><div class="card" style="max-width:900px;margin:auto;padding:clamp(24px,5vw,48px)"><div class="reflection-mark">“</div><p class="reflection">Media and information have become important parts of modern society. Through this activity, we realized that media is not simply a tool for entertainment and communication but also a powerful source of knowledge that can influence people's thoughts, decisions, and actions.</p><p class="reflection">We learned that being connected to the internet does not automatically mean being well-informed. We must develop the ability to evaluate information, recognize misleading content, and understand the possible effects of what we share online.</p><p class="reflection">As students and media users, we have a responsibility to become more critical, careful, and respectful when using different media platforms. Ultimately, technology becomes more meaningful when we use it with knowledge, awareness, and responsibility.</p></div></div></section>
+<section id="references"><div class="wrap reveal"><div class="section-head"><div class="kicker">Gallery 10 · Further reading</div><h2 class="section-title">References</h2><p>Sources listed for further learning and academic reference.</p></div><div class="card"><ol class="ref-list"><li>UNESCO. (n.d.). <i>Media and Information Literacy.</i> UNESCO.</li><li>UNESCO. (2021). <i>Media and Information Literate Citizens: Think Critically, Click Wisely!</i></li><li>World Health Organization. (n.d.). <i>Infodemic.</i></li><li>International Federation of Library Associations and Institutions. (2017). <i>How to Spot Fake News.</i></li></ol></div></div></section>
+</main>
+<footer><div class="wrap footer-inner"><div><div class="footer-brand">CLADDA</div><div style="color:var(--muted);font-weight:700">Explore. Question. Understand.</div></div><div class="small"><b>Prepared by:</b><br>Christian Jay Tutor<br>Danica Virtudazo<br>Desiree Virtudazo<br>John Aaron Balios<br>Angela Calumpang<br>Jane Luzelle Ampo<br><b style="display:block;margin-top:12px">Section:</b> Grade 12 – St. Vincent<br><span style="display:block;margin-top:9px">An Interactive Digital Museum of Media and Information</span></div></div><div class="wrap small" style="margin-top:28px">© CLADDA · Educational digital portfolio</div></footer>
+<button class="backtop" id="backTop" aria-label="Back to top" title="Back to top">↑</button>
+<script>
+const menuBtn=document.getElementById('menuBtn'),navLinks=document.getElementById('navLinks');
+menuBtn.addEventListener('click',()=>navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
+document.getElementById('backTop').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+const answers={q1:'B',q2:'A',q3:'C'};
+const explanations={
+q1:'Correct: Check the source and verify the information before accepting or sharing a shocking headline.',
+q2:'Correct: Find the original image and verify its context. Images can be edited or shared without their original context.',
+q3:'Correct: Check usage permissions and acknowledge the creator. Give proper credit to original creators.'
+};
+const form=document.getElementById('quizForm'),result=document.getElementById('quiz-result'),retake=document.getElementById('retake');
+form.addEventListener('submit',e=>{
+ e.preventDefault();let score=0,feedback='';
+ for(let i=1;i<=3;i++){const chosen=form.querySelector(`input[name="q${i}"]:checked`);const correct=answers['q'+i];if(chosen&&chosen.value===correct)score++;feedback+=`<p class="feedback"><b>Question ${i} — Correct answer: ${correct}.</b> ${explanations['q'+i]}</p>`}
+ result.style.display='block';result.innerHTML=`<h3>${score===3?'🎉 Excellent work!':score>=2?'👏 Well done!':'📚 Keep learning!'}</h3><p style="font-size:1.35rem;font-weight:900">Your score: ${score} / 3</p><p>${score===3?'Congratulations! You completed the media literacy challenge.':'Review the explanations below and try again to improve your score.'}</p>${feedback}`;
+ retake.style.display='inline-flex';result.scrollIntoView({behavior:'smooth',block:'nearest'});
+});
+retake.addEventListener('click',()=>{form.reset();result.style.display='none';result.innerHTML='';retake.style.display='none';form.scrollIntoView({behavior:'smooth',block:'center'})});
+</script>
+</body></html>
